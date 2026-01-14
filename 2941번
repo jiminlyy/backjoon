@@ -1,91 +1,47 @@
 #include <iostream>
-#include <string>
 
 using namespace std;
 
+int main() {
 
-int main(){
-    string w;
-    cin >> w;
-    int count =0;
-    for(int i =0; i< w.length(); i++ ){
-        if(w[i] == 'c'){
-            i++;
-            if(w[i]=='='){
-                count++;
-            }
-            else if(w[i] =='-'){
-                count++;
-            }
-            else{
-                i--;
-                count++;
-            }
-        }
-        else if(w[i] == 'd'){
-            i++;
-            if(w[i] == 'z'){
-                i++;
-                if(w[i] == '='){
-                    count++;
-                }
-                else{
-                    i--;
-                    count = count +2;
-                }
-            }
-            else if(w[i] == '-'){
-                count++;
-            }
-            else{
-                i--;
-                count++;
-            }
-        }
-        else if(w[i] == 'l'){
-            i++;
-            if(w[i]=='j'){
-                count++;
-            }
-            else{
-                i--;
-                count++;
-            }
-        }
-        else if(w[i] == 'n'){
-            i++;
-            if(w[i]=='j'){
-                count++;
-            }
-            else{
-                i--;
-                count++;
-            }
-        }
-        else if(w[i] == 's'){
-            i++;
-            if(w[i]=='='){
-                count++;
-            }
-            else{
-                i--;
-                count++;
-            }
-        }
-        else if(w[i] == 'z'){
-            i++;
-            if(w[i]=='='){
-                count++;
-            }
-            else{
-                i--;
-                count++;
-            }
-        }
-        else {
-            count++;
-        }
-    }
-    cout << count;
-    return 0;
+	string s;
+	cin >> s;
+
+	int ans = 0, i = 0;
+
+	while (i < s.length()) {
+		if (s[i] == 'c') {
+			if (s[i + 1] == '=')
+				i++;
+			else if (s[i + 1] == '-')
+				i++;
+		}
+		else if (s[i] == 'd') {
+			if (s[i + 1] == '-')
+				i++;
+			else if (s[i + 1] == 'z' && s[i + 2] == '=')
+				i += 2;
+		}
+		else if (s[i] == 'l') {
+			if (s[i + 1] == 'j')
+				i++;
+		}
+		else if (s[i] == 'n') {
+			if (s[i + 1] == 'j')
+				i++;
+		}
+		else if (s[i] == 's') {
+			if (s[i + 1] == '=')
+				i++;
+		}
+		else if (s[i] == 'z') {
+			if (s[i + 1] == '=')
+				i++;
+		}
+
+		ans++;
+		i++;
+	}
+	
+	cout << ans;
 }
