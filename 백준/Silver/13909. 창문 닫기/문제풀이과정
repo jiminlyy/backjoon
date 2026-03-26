@@ -1,0 +1,28 @@
+내가 처음 풀었던 것은 이렇다. 
+하지만 시간이 초과된다. 
+내가 생각한 과정은 결국 제곱수  약수가 홀수여야지만 창문이 열린다. 따라서 이렇게 썼다. 
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        int total = 0;
+        for(int j = 1; j<n; j++){
+            int count =0;
+        for(int i = 1; i<j; i++){
+            if(n%i==0){
+                count++;
+            }
+        }
+            if(count%2 == 1){
+                total +=1;
+            }
+            
+        }
+        System.out.println(total);
+        
+    }
+}
